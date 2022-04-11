@@ -1,0 +1,23 @@
+1 запрос
+SELECT login,email,COUNT(email) 
+FROM users
+GROUP BY email
+WHERE count>1
+
+2 запрос
+SELECT u.login, COUNT(o.user_id)
+FROM users as u
+INNER JOIN orders as o
+ON u.id=o.user_id
+GROUP BY u.login
+HAVING COUNT(price)=0
+ORDER BY u.login
+
+3 запрос
+SELECT u.login, COUNT(o.user_id)
+FROM users as u
+INNER JOIN orders as o
+ON u.id=o.user_id
+GROUP BY u.login
+HAVING COUNT(price)>2
+ORDER BY u.login
