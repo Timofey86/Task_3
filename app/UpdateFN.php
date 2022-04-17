@@ -8,7 +8,7 @@ class UpdateFN
     private $id;
     private $full_name;
 
-    public function __construct($id,$full_name,$db)
+    public function __construct($id, $full_name, $db)
     {
         $this->id = $id;
         $this->full_name = $full_name;
@@ -20,8 +20,4 @@ class UpdateFN
         mysqli_query($this->db, "UPDATE `users` SET `full_name` = '$this->full_name' WHERE `users`.`id` = '$this->id'");
         $_SESSION['message'] = 'ФИО успешно обновлены!';
     }
-
-
-
-
 }

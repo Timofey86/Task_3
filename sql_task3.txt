@@ -1,11 +1,11 @@
 1 запрос
-SELECT login,email,COUNT(email) 
+SELECT login, email, COUNT(email) 
 FROM users
 GROUP BY email
-WHERE count>1
+HAVING COUNT(email)>1
 
 2 запрос
-SELECT u.login, COUNT(o.user_id)
+SELECT u.login, COUNT(o.price)
 FROM users as u
 INNER JOIN orders as o
 ON u.id=o.user_id
@@ -14,7 +14,7 @@ HAVING COUNT(price)=0
 ORDER BY u.login
 
 3 запрос
-SELECT u.login, COUNT(o.user_id)
+SELECT u.login, COUNT(o.price)
 FROM users as u
 INNER JOIN orders as o
 ON u.id=o.user_id
